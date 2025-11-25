@@ -1,0 +1,185 @@
+<!--
+    Mercadinho do Felipe
+    Página de Login
+    Java 24
+    Desenvolvedores:
+    - Felipe Soeiro Lopes
+    - Giovanna de Paula Lopes Santos
+    - Kauã da Silveira Nascimento Machado
+    - Victor Guimarães Felipe
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login - Mercadinho do Felipe</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+            .login-container {
+                background: white;
+                padding: 40px;
+                border-radius: 20px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                width: 100%;
+                max-width: 450px;
+                animation: slideIn 0.5s ease-out;
+            }
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .logo {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .logo h1 {
+                color: #667eea;
+                font-size: 36px;
+                margin-bottom: 10px;
+            }
+            .logo p {
+                color: #666;
+                font-size: 14px;
+            }
+            .form-group {
+                margin-bottom: 25px;
+            }
+            label {
+                display: block;
+                margin-bottom: 8px;
+                color: #333;
+                font-weight: 600;
+                font-size: 14px;
+            }
+            input[type="text"],
+            input[type="password"] {
+                width: 100%;
+                padding: 14px;
+                border: 2px solid #e0e0e0;
+                border-radius: 10px;
+                font-size: 16px;
+                transition: all 0.3s;
+                background: #f8f9fa;
+            }
+            input:focus {
+                outline: none;
+                border-color: #667eea;
+                background: white;
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            }
+            .btn-login {
+                width: 100%;
+                padding: 14px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-size: 18px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+                margin-top: 10px;
+            }
+            .btn-login:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            }
+            .btn-login:active {
+                transform: translateY(0);
+            }
+            .error-message {
+                background: #fee;
+                color: #c33;
+                padding: 12px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                border-left: 4px solid #c33;
+                display: none;
+            }
+            .error-message.show {
+                display: block;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 30px;
+                color: #999;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container">
+            <div class="logo">
+                <h1>🛒 Mercadinho do Felipe</h1>
+                <p>Sistema de Gerenciamento</p>
+            </div>
+            
+            <div class="error-message" id="errorMsg"></div>
+            
+            <form method="post" action="login.jsp" id="loginForm">
+                <div class="form-group">
+                    <label for="login">Usuário:</label>
+                    <input type="text" id="login" name="login" required autocomplete="username" placeholder="Digite seu login">
+                </div>
+                
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required autocomplete="current-password" placeholder="Digite sua senha">
+                </div>
+                
+                <button type="submit" class="btn-login">Entrar</button>
+            </form>
+            
+            <div class="footer">
+                <p>Desenvolvido por: Felipe Soeiro Lopes, Giovanna de Paula Lopes Santos,<br>
+                Kauã da Silveira Nascimento Machado, Victor Guimarães Felipe</p>
+            </div>
+        </div>
+        
+        <script>
+            // Prevenir cache
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    window.location.reload();
+                }
+            });
+            
+            // Verifica se há parâmetro de erro na URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('error') === '1') {
+                document.getElementById('errorMsg').textContent = 'Login ou senha inválidos!';
+                document.getElementById('errorMsg').classList.add('show');
+            }
+            
+            // Limpar histórico ao sair
+            if (window.history.replaceState) {
+                window.history.replaceState(null, null, window.location.href);
+            }
+        </script>
+    </body>
+</html>
+
