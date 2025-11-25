@@ -65,12 +65,13 @@
                     sdf.setTimeZone(java.util.TimeZone.getTimeZone("America/Sao_Paulo"));
                     
                     out.println("<table>");
-                    out.println("<tr><th>ID Venda</th><th>ID Cliente</th><th>ID Produto</th><th>Nome Produto</th><th>Quantidade</th><th>Valor Unitário</th><th>Valor Total</th><th>Data e Hora (Brasil)</th><th>Ações</th></tr>");
+                    out.println("<tr><th>ID Venda</th><th>ID Cliente</th><th>Nome Cliente</th><th>ID Produto</th><th>Nome Produto</th><th>Quantidade</th><th>Valor Unitário</th><th>Valor Total</th><th>Data e Hora (Brasil)</th><th>Ações</th></tr>");
                     for(int i = 0; i < lista.size(); i++){ 
                         Vendas v = lista.get(i);
                         out.println("<tr>");
                         out.println("<td>" + v.getId() + "</td>");
                         out.println("<td>" + v.getIdCliente() + "</td>");
+                        out.println("<td>" + (v.getNomeCliente() != null ? v.getNomeCliente() : "N/A") + "</td>");
                         out.println("<td>" + v.getIdProduto() + "</td>");
                         out.println("<td>" + (v.getNomeProduto() != null ? v.getNomeProduto() : "N/A") + "</td>");
                         out.println("<td>" + v.getQuantidade() + "</td>");

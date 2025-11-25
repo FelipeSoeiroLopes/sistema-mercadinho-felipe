@@ -49,7 +49,7 @@
   - 🛒 Registro de vendas com validação de estoque
   - 🔄 Atualização automática do estoque ao realizar venda
   - 💵 Cálculo automático de valores (unitário e total)
-  - 🔍 Consulta geral e por ID
+  - 🔍 Consulta geral e por ID com exibição de nomes de clientes e produtos
   - ✏️ Alteração de vendas com ajuste de estoque
   - ♻️ Exclusão com restauração automática do estoque
 

@@ -22,6 +22,7 @@ public class Vendas {
     private int id;
     private int idCliente;
     private int idProduto;
+    private String nomeCliente; // Nome do cliente para exibição
     private String nomeProduto; // Nome do produto para exibição
     private int quantidade;
     private float valorUnitario;
@@ -37,6 +38,9 @@ public class Vendas {
     }
     public void setIdProduto(int p_idProduto) {
         this.idProduto = p_idProduto;
+    }
+    public void setNomeCliente(String p_nomeCliente) {
+        this.nomeCliente = p_nomeCliente;
     }
     public void setNomeProduto(String p_nomeProduto) {
         this.nomeProduto = p_nomeProduto;
@@ -62,6 +66,9 @@ public class Vendas {
     }
     public int getIdProduto() {
         return this.idProduto;
+    }
+    public String getNomeCliente() {
+        return this.nomeCliente;
     }
     public String getNomeProduto() {
         return this.nomeProduto;

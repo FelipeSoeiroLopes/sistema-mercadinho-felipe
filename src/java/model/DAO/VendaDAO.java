@@ -139,9 +139,10 @@ public class VendaDAO {
         Connection conn = null;
         try{
             conn = ConectaBanco.conectar();
-            // JOIN com produtos para obter o nome
-            String sql = "SELECT v.*, p.nome as nome_produto FROM vendas v " +
+            // JOIN com produtos e clientes para obter os nomes
+            String sql = "SELECT v.*, p.nome as nome_produto, c.nome as nome_cliente FROM vendas v " +
                         "INNER JOIN produtos p ON v.id_produto = p.pk_id " +
+                        "INNER JOIN clientes c ON v.id_cliente = c.pk_id " +
                         "ORDER BY v.pk_id ASC";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -153,6 +154,7 @@ public class VendaDAO {
                 venda.setId(rs.getInt("pk_id"));
                 venda.setIdCliente(rs.getInt("id_cliente"));
                 venda.setIdProduto(rs.getInt("id_produto"));
+                venda.setNomeCliente(rs.getString("nome_cliente"));
                 venda.setNomeProduto(rs.getString("nome_produto"));
                 venda.setQuantidade(rs.getInt("quantidade"));
                 venda.setValorUnitario(rs.getFloat("valor_unitario"));
@@ -185,8 +187,9 @@ public class VendaDAO {
         try{
             conn = ConectaBanco.conectar();
             PreparedStatement stmt = conn.prepareStatement(
-                "SELECT v.*, p.nome as nome_produto FROM vendas v " +
+                "SELECT v.*, p.nome as nome_produto, c.nome as nome_cliente FROM vendas v " +
                 "INNER JOIN produtos p ON v.id_produto = p.pk_id " +
+                "INNER JOIN clientes c ON v.id_cliente = c.pk_id " +
                 "WHERE v.pk_id = ?"
             );
             stmt.setInt(1, p_venda.getId());
@@ -199,6 +202,7 @@ public class VendaDAO {
                 venda.setId(rs.getInt("pk_id"));
                 venda.setIdCliente(rs.getInt("id_cliente"));
                 venda.setIdProduto(rs.getInt("id_produto"));
+                venda.setNomeCliente(rs.getString("nome_cliente"));
                 venda.setNomeProduto(rs.getString("nome_produto"));
                 venda.setQuantidade(rs.getInt("quantidade"));
                 venda.setValorUnitario(rs.getFloat("valor_unitario"));
