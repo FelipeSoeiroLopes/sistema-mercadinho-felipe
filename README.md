@@ -1214,7 +1214,7 @@ float valorTotal = quantidade * valorUnitario;
     </td>
     <td align="center">
       <img src="img/Login Admin/48-admin-estoque-atualizado-apos-venda.png" alt="Estoque Atualizado" width="400"/>
-      <br><b>Consultar Venda por ID/b>
+      <br><b>Consultar Venda por ID</b>
     </td>
   </tr>
   <tr>
