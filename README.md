@@ -1214,17 +1214,17 @@ float valorTotal = quantidade * valorUnitario;
     </td>
     <td align="center">
       <img src="img/Login Admin/48-admin-estoque-atualizado-apos-venda.png" alt="Estoque Atualizado" width="400"/>
-      <br><b>Estoque Atualizado Após Venda</b>
+      <br><b>Consultar Venda por ID/b>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="img/Login Admin/49-admin-tabela-vendas-banco.png" alt="Tabela Vendas Banco" width="400"/>
-      <br><b>Tabela de Vendas no Banco</b>
+      <br><b>Resultado da consulta ID</b>
     </td>
     <td align="center">
       <img src="img/Login Admin/50-admin-consultar-venda-id.png" alt="Consultar Venda ID" width="400"/>
-      <br><b>Consultar Venda por ID</b>
+      <br><b>Alterar Venda por ID</b>
     </td>
   </tr>
 </table>
